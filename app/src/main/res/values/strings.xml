@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Hakan Movie App</string>
+    <string name="title_activity_movie">MovieActivity</string>
+    <string name="title_activity_actor">ActorActivity</string>
+    <string name="title_activity_studio">StudioActivity</string>
+    <string name="title_activity_splash">SplashActivity</string>
+</resources>
