@@ -6,14 +6,23 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ListView;
+
+import com.example.hakanmovieapp.adapters.MovieAdapter;
+
 
 public class MovieActivity extends AppCompatActivity {
+
+    ListView movieListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        movieListView = findViewById(R.id.movieListView);
+        MovieAdapter movieListViewAdapter = new MovieAdapter(this,R.layout.activity_movie__list__item,TestData.instance.getMovies());
+        movieListView.setAdapter(movieListViewAdapter);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
