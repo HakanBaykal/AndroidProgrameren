@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.hakanmovieapp.data.MovieQuote;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showMoviequote(View view){
-        Toast toast = Toast.makeText(getApplicationContext(), "Come with me if you want to live.",Toast.LENGTH_LONG);
-        toast.show();
+        Intent quoteIntent = new Intent(this, RandomMovieQuote.class);
+        startActivity(quoteIntent);
     }
 }

@@ -1,5 +1,7 @@
 package com.example.hakanmovieapp.data;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 public class Movie {
@@ -59,5 +61,11 @@ public class Movie {
 
     public void setStudio(Studio studio) {
         this.studio = studio;
+    }
+
+    public boolean hasPicture(Context context){
+        int pictureId = context.getResources().getIdentifier("movie_"+getName().toLowerCase().replaceAll("\\s+",""), "drawable", context.getPackageName());
+
+        return pictureId != 0;
     }
 }

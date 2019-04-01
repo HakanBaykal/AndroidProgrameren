@@ -6,8 +6,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ListView;
+
+import com.example.hakanmovieapp.adapters.StudioAdapter;
 
 public class StudioActivity extends AppCompatActivity {
+
+    ListView studioListview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +20,10 @@ public class StudioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_studio);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        studioListview = findViewById(R.id.ListViewStudio);
+        StudioAdapter studioAdapter = new StudioAdapter(this,R.layout.activity_studio_list_item, TestData.instance.getStudios());
+        studioListview.setAdapter(studioAdapter);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

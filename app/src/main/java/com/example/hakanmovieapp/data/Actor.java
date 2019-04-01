@@ -1,5 +1,7 @@
 package com.example.hakanmovieapp.data;
 
+import android.content.Context;
+
 public class Actor {
 
     private String name;
@@ -36,5 +38,11 @@ public class Actor {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public boolean hasPicture(Context context){
+        int pictureId = context.getResources().getIdentifier("actor_"+getName().toLowerCase().replaceAll("\\s+",""), "drawable", context.getPackageName());
+
+        return pictureId != 0;
     }
 }
