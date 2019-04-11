@@ -36,12 +36,12 @@ public class TestDataGenerator {
         ArrayList<Studio> testStudios = new ArrayList<>();
         testStudios.add(testStudio1);
 
-        Movie testmovie1 = new Movie("Django Unchained","Action","Quentin Tarantino",testActors,testStudio1);
-        Movie testmovie2 = new Movie("Resevior Dogs","Action","Quentin Tarantino",testActors,testStudio1);
-        Movie testmovie3 = new Movie("Pulp Fiction","Action","Quentin Tarantino",testActors,testStudio1);
-        Movie testmovie4 = new Movie("Kill Bill","Action","Quentin Tarantino",testActors,testStudio1);
-        Movie testmovie5 = new Movie("Kill Bill  vol II","Action","Quentin Tarantino",testActors,testStudio1);
-        Movie testmovie6 = new Movie("Hateful Eight","Action","Quentin Tarantino",testActors,testStudio1);
+        Movie testmovie1 = new Movie("Django Unchained","Action","Quentin Tarantino",testStudio1,1);
+        Movie testmovie2 = new Movie("Resevior Dogs","Action","Quentin Tarantino",testStudio1,2);
+        Movie testmovie3 = new Movie("Pulp Fiction","Action","Quentin Tarantino",testStudio1,3);
+        Movie testmovie4 = new Movie("Kill Bill","Action","Quentin Tarantino",testStudio1,4);
+        Movie testmovie5 = new Movie("Kill Bill  vol II","Action","Quentin Tarantino",testStudio1,5);
+        Movie testmovie6 = new Movie("Hateful Eight","Action","Quentin Tarantino",testStudio1,4);
 
         ArrayList<Movie> testMovies = new ArrayList<>();
         testMovies.add(testmovie1);
@@ -50,6 +50,12 @@ public class TestDataGenerator {
         testMovies.add(testmovie4);
         testMovies.add(testmovie5);
         testMovies.add(testmovie6);
+
+        for (Movie m : testMovies){
+            for (Actor a : testActors){
+                m.addActor(a);
+            }
+        }
 
         this.testMovies = testMovies;
         this.testActors = testActors;
@@ -127,5 +133,21 @@ public class TestDataGenerator {
             }
         }
         return null;
+    }
+
+    public void addMovie(Movie movie){
+        testMovies.add(movie);
+    }
+
+    public void removeMovie(Movie movie){
+        testMovies.remove(movie);
+    }
+
+    public void addActor(Actor actor){
+        testActors.add(actor);
+    }
+
+    public void removeActor(Actor actor){
+        testActors.remove(actor);
     }
 }

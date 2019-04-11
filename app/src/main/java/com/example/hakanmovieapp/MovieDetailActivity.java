@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.hakanmovieapp.adapters.ActorAdapter;
 import com.example.hakanmovieapp.data.Actor;
 import com.example.hakanmovieapp.data.Movie;
+import com.example.hakanmovieapp.views.RatingView;
 
 public class MovieDetailActivity extends AppCompatActivity {
     ImageView imageViewDetailMovie;
@@ -21,6 +22,10 @@ public class MovieDetailActivity extends AppCompatActivity {
     TextView textViewDetailMovieStudioName;
 
     ListView listViewDetailMovieActors;
+
+    RatingView ratingView;
+
+    Movie detailMovie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +37,10 @@ public class MovieDetailActivity extends AppCompatActivity {
         textViewDetailMovieGenre = findViewById(R.id.textViewDetailMovieGenre);
         textViewDetailMovieStudioName = findViewById(R.id.textViewDetailMovieStudioName);
         listViewDetailMovieActors =findViewById(R.id.ListviewDetailMovieActors);
+        ratingView = findViewById(R.id.RatingView);
 
 
-        Movie detailMovie =  TestData.instance.getMovieByName(getIntent().getStringExtra(MovieActivity.ID_KEY));
+        detailMovie =  TestData.instance.getMovieByName(getIntent().getStringExtra(MovieActivity.ID_KEY));
 
         ActorAdapter actorAdapter = new ActorAdapter(this,R.layout.activity_actor__list__item,detailMovie.getActors());
 
@@ -71,6 +77,18 @@ public class MovieDetailActivity extends AppCompatActivity {
                 }
             });
         }
+
+        if (ratingView != null){
+            ratingView.setModel(detailMovie);
+        }
+    }
+
+    public void openUpdateMovieActivity(View view){
+        Intent intent = new Intent(this,UpdateMovieActivity.class);
+        intent.putExtra(MovieActivity.ID_KEY, detailMovie.getName());
+
+        startActivity(intent);
+        finish();
     }
 
 

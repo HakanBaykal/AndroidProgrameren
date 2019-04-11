@@ -46,4 +46,20 @@ public class TestData {
     public Studio getStudioByName(String name){
         return testDataGenerator.getStudioByName(name);
     }
+
+    public void addMovie(Movie movie){
+        testDataGenerator.addMovie(movie);
+    }
+
+    public void removeMovie(Movie movie){
+        testDataGenerator.removeMovie(movie);
+    }
+
+    public void addActor(Actor actor){
+        testDataGenerator.addActor(actor);
+    }
+
+    public void removeActor(Actor actor){
+        testDataGenerator.removeActor(actor);
+    }
 }

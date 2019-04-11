@@ -1,7 +1,9 @@
 package com.example.hakanmovieapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -9,11 +11,15 @@ import com.example.hakanmovieapp.data.Actor;
 
 public class ActorDetailActivity extends AppCompatActivity {
 
+    public static final String ACTOR_NAME_OF_TO_UPDATE_ACTOR = "ACTOR_NAME_OF_TO_UPDATE_ACTOR";
+
     ImageView  imageViewDetailActor;
     ImageView imageViewDetailActorGender;
 
     TextView textViewDetailActorName;
     TextView getTextViewDetailActorAge;
+
+    Actor detailActor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +31,13 @@ public class ActorDetailActivity extends AppCompatActivity {
         textViewDetailActorName = findViewById(R.id.textViewDetailActorName);
         getTextViewDetailActorAge = findViewById(R.id.textViewDetailActorAge);
 
-        Actor detailActor =  TestData.instance.getActorByName(getIntent().getStringExtra(ActorActivity.ACTOR_ID_KEY));
+        detailActor =  TestData.instance.getActorByName(getIntent().getStringExtra(ActorActivity.ACTOR_ID_KEY));
 
         if (imageViewDetailActor != null){
             if (detailActor.hasPicture(this)){
                 imageViewDetailActor.setImageResource(this.getResources().getIdentifier("actor_" + detailActor.getName().toLowerCase().replaceAll("\\s+", ""), "drawable", this.getPackageName()));
+            }else {
+                imageViewDetailActor.setImageResource(R.drawable.notfound);
             }
         }
 
@@ -51,5 +59,11 @@ public class ActorDetailActivity extends AppCompatActivity {
             getTextViewDetailActorAge.setText(""+detailActor.getAge());
         }
 
+    }
+
+    public void openActorUpdateActivity(View view){
+        Intent intent =  new Intent(this, UpdateActorActivity.class);
+        intent.putExtra(ACTOR_NAME_OF_TO_UPDATE_ACTOR,detailActor.getName());
+        startActivity(intent);
     }
 }

@@ -13,11 +13,17 @@ import android.widget.ListView;
 import com.example.hakanmovieapp.adapters.ActorAdapter;
 import com.example.hakanmovieapp.data.Actor;
 
+import java.util.ArrayList;
+
 public class ActorActivity extends AppCompatActivity {
 
     public static final String ACTOR_ID_KEY =  "id_key";
 
+    public static final int ACTOR_ADD_RESULT_CODE = 1234;
+
     ListView actorListView;
+
+    ActorAdapter actorAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +31,7 @@ public class ActorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_actor);
         Toolbar toolbar = findViewById(R.id.toolbar);
         actorListView = findViewById(R.id.ListViewActor);
-        ActorAdapter actorAdapter = new ActorAdapter(this, R.layout.activity_actor__list__item, TestData.instance.getActors());
+        actorAdapter = new ActorAdapter(this, R.layout.activity_actor__list__item, TestData.instance.getActors());
         actorListView.setAdapter(actorAdapter);
         actorListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
@@ -39,16 +45,34 @@ public class ActorActivity extends AppCompatActivity {
             }
         });
 
+        actorListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                TestData.instance.removeActor(actorAdapter.getItem(position));
+                actorAdapter.notifyDataSetChanged();
+                return false;
+            }
+        });
+
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(ActorActivity.this,AddActorActivity.class);
+                startActivityForResult(intent,ACTOR_ADD_RESULT_CODE);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data != null) {
+            if (requestCode == ACTOR_ADD_RESULT_CODE) {
+                actorAdapter.notifyDataSetChanged();
+            }
+        }
     }
 
 }

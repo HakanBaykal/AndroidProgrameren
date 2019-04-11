@@ -15,12 +15,15 @@ public class Movie {
 
     private Studio studio;
 
-    public Movie(String name, String genre, String director,ArrayList<Actor> actors, Studio studio) {
+    private int rating;
+
+    public Movie(String name, String genre, String director, Studio studio,int rating) {
         this.name = name;
         this.genre = genre;
         this.director = director;
-        this.actors = actors;
+        this.actors = new ArrayList<>();
         this.studio = studio;
+        this.rating = rating;
     }
 
     public String getName() {
@@ -63,9 +66,23 @@ public class Movie {
         this.studio = studio;
     }
 
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
     public boolean hasPicture(Context context){
         int pictureId = context.getResources().getIdentifier("movie_"+getName().toLowerCase().replaceAll("\\s+",""), "drawable", context.getPackageName());
 
         return pictureId != 0;
     }
+
+    public void addActor(Actor a){
+        actors.add(a);
+    }
+
+
 }

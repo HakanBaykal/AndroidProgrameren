@@ -7,7 +7,6 @@ import android.widget.TextView;
 
 import com.example.hakanmovieapp.data.MovieQuote;
 
-import java.util.Timer;
 
 public class RandomMovieQuote extends AppCompatActivity {
 
@@ -22,17 +21,22 @@ public class RandomMovieQuote extends AppCompatActivity {
 
         textViewMovie = findViewById(R.id.textViewMovie);
         textViewQuote = findViewById(R.id.textViewQuote);
+
         MovieQuote movieQuote = TestData.instance.getRandomMovieQuote();
 
         textViewMovie.setText(movieQuote.getMovie());
         textViewQuote.setText(movieQuote.getQuote());
 
+
         Handler handler = new Handler();
+
 
         handler.postDelayed(new Runnable() {
             public void run() {
                 finish();
             }
         }, 5000);
+
+
     }
 }

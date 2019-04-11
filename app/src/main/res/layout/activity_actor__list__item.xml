@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".actor_list_item">
+    tools:context=".ActorListItem">
 
     <ImageView
         android:id="@+id/imageViewActor"

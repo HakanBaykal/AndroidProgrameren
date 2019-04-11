@@ -6,28 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".StudioListItem">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars[2]" />
-
     <TextView
         android:id="@+id/textViewStudioName"
-        android:layout_width="290dp"
-        android:layout_height="75dp"
+        android:layout_width="420dp"
+        android:layout_height="54dp"
         android:text="TextView"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-2dp" />
 
     <TextView
         android:id="@+id/textViewOwner"
-        android:layout_width="288dp"
-        android:layout_height="51dp"
+        android:layout_width="416dp"
+        android:layout_height="32dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/textViewStudioName" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewStudioName"
+        tools:layout_editor_absoluteX="0dp" />
 </android.support.constraint.ConstraintLayout>
