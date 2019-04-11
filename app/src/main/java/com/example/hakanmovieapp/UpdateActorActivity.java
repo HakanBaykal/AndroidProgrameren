@@ -2,9 +2,11 @@ package com.example.hakanmovieapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.hakanmovieapp.data.Actor;
 
@@ -13,12 +15,14 @@ public class UpdateActorActivity extends AppCompatActivity {
     EditText editTextUpdatedActorAge;
     Spinner spinnerUpdatedActorGender;
 
+    Actor actorToUpdate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_actor);
 
-        Actor actorToUpdate = TestData.instance.getActorByName(getIntent().getStringExtra(ActorDetailActivity.ACTOR_NAME_OF_TO_UPDATE_ACTOR));
+        actorToUpdate = TestData.instance.getActorByName(getIntent().getStringExtra(ActorDetailActivity.ACTOR_NAME_OF_TO_UPDATE_ACTOR));
 
         editTextUpdatedActorName = findViewById(R.id.editTextUpdatedActorName);
         editTextUpdatedActorAge = findViewById(R.id.editTextUpdatedActorAge);
@@ -47,5 +51,24 @@ public class UpdateActorActivity extends AppCompatActivity {
 
         }
         return -1;
+    }
+
+    public void saveUpdatedActor(View view){
+        String updatedActorName = editTextUpdatedActorName.getText().toString();
+        int updatedActorAge =  Integer.parseInt(editTextUpdatedActorAge.getText().toString());
+        String updatedActorGender =  spinnerUpdatedActorGender.getSelectedItem().toString();
+
+        if (updatedActorName.length() == 0){
+            Toast toast = Toast.makeText(this,"Name is verplicht",Toast.LENGTH_SHORT);
+            toast.show();
+        }else if (updatedActorAge <= 0) {
+            Toast toast = Toast.makeText(this, "leeftijd moet boven de 0 zijn", Toast.LENGTH_SHORT);
+            toast.show();
+        }else {
+            actorToUpdate.setName(updatedActorName);
+            actorToUpdate.setAge(updatedActorAge);
+            actorToUpdate.setGender(updatedActorGender);
+            finish();
+        }
     }
 }

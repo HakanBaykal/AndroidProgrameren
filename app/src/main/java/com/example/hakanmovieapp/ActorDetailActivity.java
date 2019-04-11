@@ -65,5 +65,6 @@ public class ActorDetailActivity extends AppCompatActivity {
         Intent intent =  new Intent(this, UpdateActorActivity.class);
         intent.putExtra(ACTOR_NAME_OF_TO_UPDATE_ACTOR,detailActor.getName());
         startActivity(intent);
+        finish();
     }
 }
