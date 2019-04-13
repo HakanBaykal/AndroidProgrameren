@@ -9,4 +9,26 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
+
+    <string name="value_menu_button_movies">Movies</string>
+    <string name="value_menu_button_actor">Actors</string>
+    <string name="value_menu_button_studios">Studios</string>
+    <string name="value_menu_button_random_quote">Random Movie Quote</string>
+    <string name="value_save_button">Save</string>
+    <string name="value_edit_button">Edit</string>
+    <string name="value_textview_name">name</string>
+    <string name="value_textview_genre">genre</string>
+    <string name="value_textview_director">director</string>
+    <string name="value_textview_actors_to_add">Actos to add</string>
+    <string name="value_textview_actors_added">Actors added</string>
+    <string name="value_textview_studio_name">name</string>
+    <string name="value_textview_studio_founder">founder</string>
+    <string name="value_textview_studio_owner_company">owner company</string>
+    <string name="value_toast_name_forgotten">please enter a name</string>
+    <string name="value_toast_genre_forgotten">please enter a genre</string>
+    <string name="value_toast_director_forgotten">please enter a director</string>
+    <string name="value_toast_studio_forgotten">please select a studio</string>
+    <string name="value_toast_age_forgotten">please enter a valid age</string>
+    <string name="value_toast_founder_forgotten">please enter a founder</string>
+    <string name="value_toast_owner_company_forgotten">please enter a owner company</string>
 </resources>

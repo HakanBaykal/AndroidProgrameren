@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RatingBar;
@@ -14,6 +15,7 @@ import com.example.hakanmovieapp.adapters.StudioAdapter;
 import com.example.hakanmovieapp.data.Actor;
 import com.example.hakanmovieapp.data.Movie;
 import com.example.hakanmovieapp.data.Studio;
+import com.example.hakanmovieapp.views.MovieInputView;
 
 import java.util.ArrayList;
 
@@ -22,11 +24,11 @@ public class AddMovieActivity extends AppCompatActivity {
     public static  final int RESULT_CODE = 1;
     public static final String RESULT_ARRAY_LIST_ACTORS = "actor_array_list";
 
-    private EditText editTextName;
+    private Button buttonAddActorsToMovie;
 
-    private EditText editTextGenre;
+    private Button buttonSaveNewMovie;
 
-    private EditText editTextDirector;
+    private MovieInputView movieInputView;
 
     private RatingBar ratingBar;
 
@@ -43,9 +45,11 @@ public class AddMovieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_movie);
 
-        editTextName = findViewById(R.id.editText);
-        editTextGenre  = findViewById(R.id.editTextGenre);
-        editTextDirector = findViewById(R.id.editTextDirector);
+        movieInputView = findViewById(R.id.movieInputView);
+        buttonAddActorsToMovie = findViewById(R.id.buttonAddActorToMovie);
+        buttonAddActorsToMovie.setText(R.string.value_menu_button_actor);
+        buttonSaveNewMovie = findViewById(R.id.buttonMovieSave);
+        buttonSaveNewMovie.setText(R.string.value_save_button);
         ratingBar = findViewById(R.id.ratingBarMovie);
         listViewStudios = findViewById(R.id.ListViewMovieAddStudio);
 
@@ -87,20 +91,24 @@ public class AddMovieActivity extends AppCompatActivity {
     }
 
     public void saveMovie(View view){
-        if (editTextName.getText().length() == 0){
-            Toast toast = Toast.makeText(this,"Name is verplicht",Toast.LENGTH_SHORT);
+        String addMovieName = movieInputView.getAddMovieName();
+        String addMovieGenre = movieInputView.getAddMovieGenre();
+        String addMovieDirector = movieInputView. getAddMovieDirector();
+
+        if (addMovieName.length() == 0){
+            Toast toast = Toast.makeText(this,R.string.value_toast_name_forgotten,Toast.LENGTH_SHORT);
             toast.show();
-        }else if (editTextGenre.getText().length() == 0){
-            Toast toast = Toast.makeText(this,"Genre is verplicht",Toast.LENGTH_SHORT);
+        }else if (addMovieGenre.length() == 0){
+            Toast toast = Toast.makeText(this,R.string.value_toast_genre_forgotten,Toast.LENGTH_SHORT);
             toast.show();
-        }else if (editTextDirector.getText().length() == 0){
-            Toast toast = Toast.makeText(this,"Director is verplicht",Toast.LENGTH_SHORT);
+        }else if (addMovieDirector.length() == 0){
+            Toast toast = Toast.makeText(this,R.string.value_toast_director_forgotten,Toast.LENGTH_SHORT);
             toast.show();
         }else if (studio == null){
-            Toast toast = Toast.makeText(this,"Studio is verplicht",Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this,R.string.value_toast_studio_forgotten,Toast.LENGTH_SHORT);
             toast.show();
         }else {
-            Movie newMovie = new Movie(editTextName.getText().toString(), editTextGenre.getText().toString(), editTextDirector.getText().toString(), studio, (int)ratingBar.getRating());
+            Movie newMovie = new Movie(addMovieName, addMovieGenre, addMovieDirector, studio, (int)ratingBar.getRating());
             for (Actor a : arrayListActors){
                 newMovie.addActor(a);
             }

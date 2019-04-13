@@ -21,7 +21,7 @@
         app:srcCompat="@drawable/movie_clipboard" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewSplashScreen"
         android:layout_width="194dp"
         android:layout_height="199dp"
         android:layout_marginStart="8dp"

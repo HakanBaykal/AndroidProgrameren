@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,6 +13,8 @@ import com.example.hakanmovieapp.data.Actor;
 public class ActorDetailActivity extends AppCompatActivity {
 
     public static final String ACTOR_NAME_OF_TO_UPDATE_ACTOR = "ACTOR_NAME_OF_TO_UPDATE_ACTOR";
+
+    Button buttonEditActor;
 
     ImageView  imageViewDetailActor;
     ImageView imageViewDetailActorGender;
@@ -26,6 +29,8 @@ public class ActorDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actor_detail);
 
+        buttonEditActor = findViewById(R.id.buttonEditActor);
+        buttonEditActor.setText(R.string.value_edit_button);
         imageViewDetailActor = findViewById(R.id.imageViewDetailActor);
         imageViewDetailActorGender = findViewById(R.id.imageViewDetailActorGender);
         textViewDetailActorName = findViewById(R.id.textViewDetailActorName);

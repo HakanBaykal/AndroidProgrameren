@@ -9,13 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdateActorActivity"></activity>
+        <activity android:name=".UpdateStudioActivity"></activity>
+        <activity android:name=".StudioDetailActivity" />
+        <activity android:name=".AddStudioActivity" />
+        <activity android:name=".UpdateActorActivity" />
         <activity android:name=".AddActorActivity" />
         <activity android:name=".UpdateMovieActivity" />
         <activity android:name=".AddMovieActorActivity" />
         <activity android:name=".AddMovieActivity" />
         <activity android:name=".ActorDetailActivity" />
-        <activity android:name=".CreateActivity" />
         <activity android:name=".MovieDetailActivity" />
         <activity android:name=".RandomMovieQuote" />
         <activity android:name=".StudioListItem" />

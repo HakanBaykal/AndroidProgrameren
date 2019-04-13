@@ -62,4 +62,10 @@ public class TestData {
     public void removeActor(Actor actor){
         testDataGenerator.removeActor(actor);
     }
+
+    public void addStudio(Studio studio){
+        testDataGenerator.addStudio(studio);
+    }
+
+    public void removeStudio(Studio studio){ testDataGenerator.removeStudio(studio);}
 }

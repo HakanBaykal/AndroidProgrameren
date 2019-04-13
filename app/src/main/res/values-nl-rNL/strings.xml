@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hakan Film App</string>
+    <string name="title_activity_movie">FilmActiviteit</string>
+    <string name="title_activity_actor">ActeurActiviteit</string>
+    <string name="title_activity_studio">StudioActiviteit</string>
+    <string name="title_activity_splash">PlonsActiviteit</string>
+    <string name="value_menu_button_movies">Films</string>
+    <string name="value_menu_button_actor">Acteurs</string>
+    <string name="value_menu_button_studios">Studios</string>
+    <string name="value_menu_button_random_quote">Willekeurige Film Citaat</string>
+    <string name="value_save_button">Opslaan</string>
+    <string name="value_edit_button">Aanpassen</string>
+
+    <string-array name="genders">
+        <item>Man</item>
+        <item>Vrouw</item>
+    </string-array>
+    <string name="value_textview_name">naam</string>
+    <string name="value_textview_genre">genre</string>
+    <string name="value_textview_director">regisseur</string>
+    <string name="value_textview_actors_to_add">Acteurs die nog kan toevoegen</string>
+    <string name="value_textview_actors_added">Toegevoegde acteurs</string>
+    <string name="value_textview_studio_name">naam</string>
+    <string name="value_textview_studio_founder">oprichter</string>
+    <string name="value_textview_studio_owner_company">bedrijf eigenaar</string>
+    <string name="value_toast_name_forgotten">vul a.u.b. een naam in</string>
+    <string name="value_toast_genre_forgotten">vul a.u.b. een genre in</string>
+    <string name="value_toast_director_forgotten">vul a.u.b. een regisseur in</string>
+    <string name="value_toast_studio_forgotten">selecteer a.u.b. een studio</string>
+    <string name="value_toast_age_forgotten">vul a.u.b. een geldige leeftijd in</string>
+    <string name="value_toast_founder_forgotten">vul a.u.b. een oprichter in</string>
+    <string name="value_toast_owner_company_forgotten">vul a.u.b. een bedrijfs eigenaar in</string>
+</resources>

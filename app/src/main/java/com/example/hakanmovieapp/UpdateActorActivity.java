@@ -59,10 +59,10 @@ public class UpdateActorActivity extends AppCompatActivity {
         String updatedActorGender =  spinnerUpdatedActorGender.getSelectedItem().toString();
 
         if (updatedActorName.length() == 0){
-            Toast toast = Toast.makeText(this,"Name is verplicht",Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this,R.string.value_toast_name_forgotten,Toast.LENGTH_SHORT);
             toast.show();
         }else if (updatedActorAge <= 0) {
-            Toast toast = Toast.makeText(this, "leeftijd moet boven de 0 zijn", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.value_toast_age_forgotten, Toast.LENGTH_SHORT);
             toast.show();
         }else {
             actorToUpdate.setName(updatedActorName);

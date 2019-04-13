@@ -150,4 +150,8 @@ public class TestDataGenerator {
     public void removeActor(Actor actor){
         testActors.remove(actor);
     }
+
+    public void addStudio(Studio studio){ testStudios.add(studio);}
+
+    public void removeStudio(Studio studio){ testStudios.remove(studio);}
 }

@@ -4,17 +4,32 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.hakanmovieapp.data.MovieQuote;
 
 
 public class MainActivity extends AppCompatActivity {
+    Button buttonMovies;
+    Button buttonActors;
+    Button buttonStudios;
+    Button buttonRandomMovieQuote;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        buttonMovies = findViewById(R.id.buttonMovie);
+        buttonActors = findViewById(R.id.buttonActor);
+        buttonStudios = findViewById(R.id.buttonStudio);
+        buttonRandomMovieQuote = findViewById(R.id.buttonQuote);
+
+        buttonMovies.setText(R.string.value_menu_button_movies);
+        buttonActors.setText(R.string.value_menu_button_actor);
+        buttonStudios.setText(R.string.value_menu_button_studios);
+        buttonRandomMovieQuote.setText(R.string.value_menu_button_random_quote);
     }
 
     public void goToMovieActivity(View view){

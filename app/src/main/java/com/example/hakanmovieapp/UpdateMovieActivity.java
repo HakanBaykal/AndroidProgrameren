@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RatingBar;
@@ -13,21 +14,22 @@ import com.example.hakanmovieapp.adapters.StudioAdapter;
 import com.example.hakanmovieapp.data.Actor;
 import com.example.hakanmovieapp.data.Movie;
 import com.example.hakanmovieapp.data.Studio;
+import com.example.hakanmovieapp.views.MovieInputView;
 
 import java.util.ArrayList;
 
 public class UpdateMovieActivity extends AppCompatActivity {
 
 
-    private EditText editTextUpdateName;
-
-    private EditText editTextUpdateGenre;
-
-    private EditText editTextUpdateDirector;
+    private MovieInputView movieInputView;
 
     private RatingBar ratingBarUpdate;
 
     private ListView listViewUpdateStudios;
+
+    private Button buttonUpdateMovieActors;
+
+    private Button buttonUpdateMovieSave;
 
     private ArrayList<Actor> arrayListActors;
 
@@ -42,19 +44,22 @@ public class UpdateMovieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_movie);
 
-        editTextUpdateName = findViewById(R.id.editTextUpdateMovieName);
-        editTextUpdateGenre = findViewById(R.id.editTextUpdateMovieGenre);
-        editTextUpdateDirector = findViewById(R.id.editTextUpdateMovieDirector);
+        movieInputView = findViewById(R.id.MovieInputViewUpdate);
 
         ratingBarUpdate = findViewById(R.id.ratingBarUpdateMovie);
 
         listViewUpdateStudios = findViewById(R.id.ListViewMovieUpdateStudio);
 
+        buttonUpdateMovieActors = findViewById(R.id.buttonUpdateActorOfMovie);
+        buttonUpdateMovieActors.setText(R.string.value_menu_button_actor);
+        buttonUpdateMovieSave = findViewById(R.id.buttonUpdateMovieSave);
+        buttonUpdateMovieSave.setText(R.string.value_save_button);
+
         movieToUpdate = TestData.instance.getMovieByName(this.getIntent().getStringExtra(MovieActivity.ID_KEY));
 
-        editTextUpdateName.setText(movieToUpdate.getName());
-        editTextUpdateGenre.setText(movieToUpdate.getGenre());
-        editTextUpdateDirector.setText(movieToUpdate.getDirector());
+        movieInputView.setAddMovieName(movieToUpdate.getName());
+        movieInputView.setAddMovieGenre(movieToUpdate.getGenre());
+        movieInputView.setAddMovieDirector(movieToUpdate.getDirector());
 
         ratingBarUpdate.setRating(movieToUpdate.getRating());
 
@@ -110,23 +115,23 @@ public class UpdateMovieActivity extends AppCompatActivity {
     }
 
     public void saveUpdatedMovie(View view){
-        String updatedMovieName = editTextUpdateName.getText().toString();
-        String updatedMovieGenre = editTextUpdateGenre.getText().toString();
-        String updateMovieDirector = editTextUpdateDirector.getText().toString();
+        String updatedMovieName = movieInputView.getAddMovieName();
+        String updatedMovieGenre = movieInputView.getAddMovieGenre();
+        String updateMovieDirector = movieInputView.getAddMovieDirector();
 
         float updatedMovieRating = ratingBarUpdate.getRating();
 
         if (updatedMovieName.length() == 0){
-            Toast toast = Toast.makeText(this,"Name is verplicht",Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this,R.string.value_toast_name_forgotten,Toast.LENGTH_SHORT);
             toast.show();
         }else if (updatedMovieGenre.length() == 0){
-            Toast toast = Toast.makeText(this,"Genre is verplicht",Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this,R.string.value_toast_genre_forgotten,Toast.LENGTH_SHORT);
             toast.show();
         }else if (updateMovieDirector.length() == 0){
-            Toast toast = Toast.makeText(this,"Director is verplicht",Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this,R.string.value_toast_director_forgotten,Toast.LENGTH_SHORT);
             toast.show();
         }else if (studio == null){
-            Toast toast = Toast.makeText(this,"Studio is verplicht",Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this,R.string.value_toast_studio_forgotten,Toast.LENGTH_SHORT);
             toast.show();
         }else {
             movieToUpdate.setName(updatedMovieName);

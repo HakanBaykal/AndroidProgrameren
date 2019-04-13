@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,6 +18,9 @@ import com.example.hakanmovieapp.views.RatingView;
 public class MovieDetailActivity extends AppCompatActivity {
     ImageView imageViewDetailMovie;
 
+    Button buttonMovieEdit;
+
+    TextView textViewDetailMovieActors;
     TextView textViewDetailMovieName;
     TextView textViewDetailMovieGenre;
     TextView textViewDetailMovieStudioName;
@@ -32,10 +36,12 @@ public class MovieDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
 
+        buttonMovieEdit = findViewById(R.id.buttonMovieEdit);
         imageViewDetailMovie = findViewById(R.id.imageViewDetailMovie);
         textViewDetailMovieName = findViewById(R.id.textViewDetailMovieName);
         textViewDetailMovieGenre = findViewById(R.id.textViewDetailMovieGenre);
         textViewDetailMovieStudioName = findViewById(R.id.textViewDetailMovieStudioName);
+        textViewDetailMovieActors = findViewById(R.id.textViewMovieDetailActors);
         listViewDetailMovieActors =findViewById(R.id.ListviewDetailMovieActors);
         ratingView = findViewById(R.id.RatingView);
 
@@ -81,6 +87,9 @@ public class MovieDetailActivity extends AppCompatActivity {
         if (ratingView != null){
             ratingView.setModel(detailMovie);
         }
+
+        buttonMovieEdit.setText(R.string.value_edit_button);
+        textViewDetailMovieActors.setText(R.string.value_menu_button_actor);
     }
 
     public void openUpdateMovieActivity(View view){

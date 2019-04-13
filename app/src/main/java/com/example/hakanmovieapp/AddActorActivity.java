@@ -37,10 +37,10 @@ public class AddActorActivity extends AppCompatActivity {
         String newActorGender = spinnerActorGender.getSelectedItem().toString();
 
         if (newActorName.length() == 0){
-            Toast toast = Toast.makeText(this,"Name is verplicht",Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this,R.string.value_toast_name_forgotten,Toast.LENGTH_SHORT);
             toast.show();
         }else if(newActorAge < 0){
-            Toast toast = Toast.makeText(this,"Age is verplicht",Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this,R.string.value_toast_age_forgotten,Toast.LENGTH_SHORT);
             toast.show();
         }else {
             Actor actor = new Actor(newActorName,newActorAge,newActorGender);

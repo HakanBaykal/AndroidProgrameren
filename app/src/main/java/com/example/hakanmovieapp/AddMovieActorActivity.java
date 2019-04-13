@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.hakanmovieapp.adapters.ActorAdapter;
 import com.example.hakanmovieapp.data.Actor;
@@ -20,10 +21,19 @@ public class AddMovieActorActivity extends AppCompatActivity {
     private ListView listViewActorsAdded;
     private ListView listViewActorsToAdd;
 
+    private TextView textViewActorsToAdd;
+    private TextView textViewActorsAdded;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_movie_actor);
+        textViewActorsToAdd =findViewById(R.id.textViewActorsToAdd);
+        textViewActorsToAdd.setText(R.string.value_textview_actors_to_add);
+        textViewActorsAdded =findViewById(R.id.textViewActorsAdded);
+        textViewActorsAdded.setText(R.string.value_textview_actors_added);
+
         actorsAdded = new ArrayList<>();
         for (String actorName : getIntent().getStringArrayListExtra(AddMovieActivity.RESULT_ARRAY_LIST_ACTORS)){
             if (!actorAlreadyAdded(actorName)){

@@ -5,13 +5,19 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.hakanmovieapp.R;
 
 public class MovieInputView extends LinearLayout {
+
     private EditText editTextMovieName;
     private EditText editTextMovieGenre;
     private EditText editTextMovieDirector;
+
+    private TextView textViewInputMovieName;
+    private TextView textViewInputMovieGenre;
+    private TextView textViewInputMovieDirector;
 
 
     public MovieInputView(Context context) {
@@ -39,8 +45,40 @@ public class MovieInputView extends LinearLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
 
-        editTextMovieName  = (EditText) findViewById(R.id.editText);
-        editTextMovieGenre  = (EditText) findViewById(R.id.editText2);
-        editTextMovieDirector  = (EditText) findViewById(R.id.editText3);
+        editTextMovieName  = (EditText) findViewById(R.id.editTextAddMovieName);
+        editTextMovieGenre  = (EditText) findViewById(R.id.editTextAddMovieGenre);
+        editTextMovieDirector  = (EditText) findViewById(R.id.editTextAddMovieDirector);
+
+        textViewInputMovieName =findViewById(R.id.textViewMovieInputViewName);
+        textViewInputMovieGenre =findViewById(R.id.textViewMovieInputViewGenre);
+        textViewInputMovieDirector =findViewById(R.id.textViewMovieInputViewDirector);
+
+        textViewInputMovieName.setText(R.string.value_textview_name);
+        textViewInputMovieGenre.setText(R.string.value_textview_genre);
+        textViewInputMovieDirector.setText(R.string.value_textview_director);
+    }
+
+    public String getAddMovieName(){
+        return editTextMovieName.getText().toString();
+    }
+
+    public void setAddMovieName(String addMovieName){
+        editTextMovieName.setText(addMovieName);
+    }
+
+    public String getAddMovieGenre(){
+        return editTextMovieGenre.getText().toString();
+    }
+
+    public void setAddMovieGenre(String addMovieGenre){
+        editTextMovieGenre.setText(addMovieGenre);
+    }
+
+    public String getAddMovieDirector(){
+        return editTextMovieDirector.getText().toString();
+    }
+
+    public void setAddMovieDirector(String addMovieDirector){
+        editTextMovieDirector.setText(addMovieDirector);
     }
 }
