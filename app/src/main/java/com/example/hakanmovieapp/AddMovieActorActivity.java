@@ -35,6 +35,8 @@ public class AddMovieActorActivity extends AppCompatActivity {
         textViewActorsAdded.setText(R.string.value_textview_actors_added);
 
         actorsAdded = new ArrayList<>();
+        // er wordt een arraylist met namen doorgegeven met alle namen van alle al gekozen acteurs
+        // die vervolgens gecheckt worden of ze al in de lijst staan zodat ze niet dubbel er in komen
         for (String actorName : getIntent().getStringArrayListExtra(AddMovieActivity.RESULT_ARRAY_LIST_ACTORS)){
             if (!actorAlreadyAdded(actorName)){
                 actorsAdded.add(TestData.instance.getActorByName(actorName));
@@ -42,6 +44,8 @@ public class AddMovieActorActivity extends AppCompatActivity {
 
         }
         actorsToAdd = new ArrayList<>();
+        // er wordt een arraylist met namen doorgegeven met alle namen van alle al gekozen acteurs
+        // die vervolgens gecheckt worden of ze al in de lijst staan zodat ze niet dubbel er in komen
         for (Actor a : TestData.instance.getActors()){
             if (!actorAlreadyAdded(a.getName())){
                 actorsToAdd.add(a);
@@ -87,6 +91,7 @@ public class AddMovieActorActivity extends AppCompatActivity {
 
     }
 
+    // hier worden alle namen van alle toegevoegde acteurs in een arrayList gestopt en die worden dan teruggegeven als result
     public void saveActors(View view){
         ArrayList<String> ActorNames = new ArrayList<>();
         for (Actor a : actorsAdded){

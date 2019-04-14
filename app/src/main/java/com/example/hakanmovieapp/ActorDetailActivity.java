@@ -40,6 +40,7 @@ public class ActorDetailActivity extends AppCompatActivity {
 
         if (imageViewDetailActor != null){
             if (detailActor.hasPicture(this)){
+                //hier wordt het resource id van een drawable opgehaaldop basis van de acteurs zn naam en in de imageview gestopt
                 imageViewDetailActor.setImageResource(this.getResources().getIdentifier("actor_" + detailActor.getName().toLowerCase().replaceAll("\\s+", ""), "drawable", this.getPackageName()));
             }else {
                 imageViewDetailActor.setImageResource(R.drawable.notfound);
@@ -48,10 +49,12 @@ public class ActorDetailActivity extends AppCompatActivity {
 
         if (imageViewDetailActorGender != null){
             if (detailActor.getGender().equals("Female")){
+                //hier wordt het resource id van een drawable opgehaaldop basis van de acteurs zn gender en in de imageview gestopt
                 imageViewDetailActorGender.setImageResource(R.drawable.female);
             }
 
             if (detailActor.getGender().equals("Male")){
+                //hier wordt het resource id van een drawable opgehaaldop basis van de acteurs zn gender en in de imageview gestopt
                 imageViewDetailActorGender.setImageResource(R.drawable.male);
             }
         }

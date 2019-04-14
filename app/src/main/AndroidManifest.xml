@@ -19,7 +19,7 @@
         <activity android:name=".AddMovieActivity" />
         <activity android:name=".ActorDetailActivity" />
         <activity android:name=".MovieDetailActivity" />
-        <activity android:name=".RandomMovieQuote" />
+        <activity android:name=".RandomMovieQuoteActivity" />
         <activity android:name=".StudioListItem" />
         <activity android:name=".ActorListItem" />
         <activity android:name=".MovieListItem" />

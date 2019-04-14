@@ -59,6 +59,7 @@ public class RatingView extends View {
 
     }
 
+    // ik maak hier gebruik van een path zodat ik vrij kan tekenen door coördinaten op te geven waar de lijn heen moet en dan het oppervlakte te vullen met een kleur
     public void drawStar(Canvas canvas, float start){
         Path path = new Path();
 

@@ -100,6 +100,7 @@ public class UpdateMovieActivity extends AppCompatActivity {
         startActivityForResult(intent, AddMovieActivity.RESULT_CODE);
     }
 
+    //hier wordt over de listview van studios gelooped om de positie van et gekozen studio te vinden
     public int getPositionOfSelectedStudio(String studioName){
         int listviewSize = listViewUpdateStudios.getCount();
 

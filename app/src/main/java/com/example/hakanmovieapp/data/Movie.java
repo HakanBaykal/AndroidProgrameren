@@ -74,6 +74,7 @@ public class Movie {
         this.rating = rating;
     }
 
+    //Hier wordt er gecheckt of er een foto is met de naam van de film  in mijn drawable  folder door het id te proberen op te halen
     public boolean hasPicture(Context context){
         int pictureId = context.getResources().getIdentifier("movie_"+getName().toLowerCase().replaceAll("\\s+",""), "drawable", context.getPackageName());
 

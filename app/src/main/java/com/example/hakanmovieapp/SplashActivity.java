@@ -18,6 +18,7 @@ public class SplashActivity extends AppCompatActivity {
         textViewSplashScreen = findViewById(R.id.textViewSplashScreen);
         textViewSplashScreen.setText(R.string.app_name);
 
+        //hier wordt met een postDelayed na 1,5 sec een finish aangeroepen
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {

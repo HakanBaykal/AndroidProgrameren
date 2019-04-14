@@ -5,9 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
-import com.example.hakanmovieapp.data.MovieQuote;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -48,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showMoviequote(View view){
-        Intent quoteIntent = new Intent(this, RandomMovieQuote.class);
+        Intent quoteIntent = new Intent(this, RandomMovieQuoteActivity.class);
         startActivity(quoteIntent);
     }
 }

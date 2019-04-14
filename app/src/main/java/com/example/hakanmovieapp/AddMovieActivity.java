@@ -66,6 +66,7 @@ public class AddMovieActivity extends AppCompatActivity {
         arrayListActors = new ArrayList<>();
     }
 
+    //Moment dat AddMovieActorActivity stop ik hier alle acteurs die in dat scherm gekozen zijn bij de film
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data != null) {
@@ -78,6 +79,8 @@ public class AddMovieActivity extends AppCompatActivity {
         }
     }
 
+    //hier open ik een activity naar de AddMovieActorActivity waar ik een lijst van namen van alle al geselecteerde acteurs mee geef
+    //en ik start de activity voor result dus als die sluit gaat onActivityResult af
     public void addActorsToMovie(View view){
         ArrayList<String> actorNames = new ArrayList<>();
         for (Actor actor: arrayListActors){
@@ -95,6 +98,7 @@ public class AddMovieActivity extends AppCompatActivity {
         String addMovieGenre = movieInputView.getAddMovieGenre();
         String addMovieDirector = movieInputView. getAddMovieDirector();
 
+        // hier worden alle verplichte velden gecheckt n geeft een Toast bericht als er iets vergeten is
         if (addMovieName.length() == 0){
             Toast toast = Toast.makeText(this,R.string.value_toast_name_forgotten,Toast.LENGTH_SHORT);
             toast.show();
@@ -113,6 +117,7 @@ public class AddMovieActivity extends AppCompatActivity {
                 newMovie.addActor(a);
             }
             TestData.instance.addMovie(newMovie);
+            setResult(MovieActivity.RESULT_MOVIE_KEY);
             finish();
         }
     }

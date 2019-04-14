@@ -13,8 +13,10 @@ import com.example.hakanmovieapp.data.Movie;
 public class MovieActivity extends AppCompatActivity {
 
     public static final String ID_KEY = "id_key";
+    public static final int RESULT_MOVIE_KEY = 123872;
 
-    ListView movieListView;
+    private ListView movieListView;
+    private MovieAdapter movieListViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +24,7 @@ public class MovieActivity extends AppCompatActivity {
         setContentView(R.layout.activity_movie);
         Toolbar toolbar = findViewById(R.id.toolbar);
         movieListView = findViewById(R.id.movieListView);
-        final MovieAdapter movieListViewAdapter = new MovieAdapter(this,R.layout.activity_movie__list__item,TestData.instance.getMovies());
+        movieListViewAdapter = new MovieAdapter(this,R.layout.activity_movie__list__item,TestData.instance.getMovies());
         movieListView.setAdapter(movieListViewAdapter);
 
         movieListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -53,10 +55,17 @@ public class MovieActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MovieActivity.this, AddMovieActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, RESULT_MOVIE_KEY);
                 movieListViewAdapter.notifyDataSetChanged();
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == RESULT_MOVIE_KEY) {
+            movieListViewAdapter.notifyDataSetChanged();
+        }
     }
 
 }

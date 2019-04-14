@@ -26,8 +26,9 @@ public class AddActorActivity extends AppCompatActivity {
         editTextActorName = findViewById(R.id.editTextActorName);
         editTextActorAge =findViewById(R.id.editTextActorAge);
         spinnerActorGender = findViewById(R.id.spinnerGender);
-        ArrayAdapter<CharSequence> genderArrayAdapter = ArrayAdapter.createFromResource(this,R.array.genders,R.layout.support_simple_spinner_dropdown_item);
 
+        //hier is een arrayAdapter die alle gender uit mijn string.xml halen en in met spinner stoppen
+        ArrayAdapter<CharSequence> genderArrayAdapter = ArrayAdapter.createFromResource(this,R.array.genders,R.layout.support_simple_spinner_dropdown_item);
         spinnerActorGender.setAdapter(genderArrayAdapter);
     }
 

@@ -49,7 +49,7 @@ public class AddStudioActivity extends AppCompatActivity {
         String newStudioName = editTextNewStudioName.getText().toString();
         String newStudioFounder = editTextNewStudioFounder.getText().toString();
         String newStudioOwnerCompany = editTextNewStudioOwnerCompany.getText().toString();
-
+        // hier worden alle verplichte velden gecheckt n geeft een Toast bericht als er iets vergeten is
         if (newStudioName.length() == 0){
             Toast toast = Toast.makeText(this, R.string.value_toast_name_forgotten,Toast.LENGTH_SHORT);
             toast.show();

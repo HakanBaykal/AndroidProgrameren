@@ -35,11 +35,13 @@ public class UpdateActorActivity extends AppCompatActivity {
         spinnerUpdatedActorGender.setAdapter(genderArrayAdapter);
         int positionOfActorGenderInSpinner = getPositionOfSelectedGender(actorToUpdate.getGender());
         if (positionOfActorGenderInSpinner >= 0){
+            // de acteur zn gender wordt gezet
             spinnerUpdatedActorGender.setSelection(positionOfActorGenderInSpinner);
         }
 
     }
 
+    //hier wordt over de spinner gelooped om de positie van het gekozen gender te vinden
     public int getPositionOfSelectedGender(String gender){
         int spinnerSize = spinnerUpdatedActorGender.getAdapter().getCount();
 
@@ -52,6 +54,7 @@ public class UpdateActorActivity extends AppCompatActivity {
         }
         return -1;
     }
+
 
     public void saveUpdatedActor(View view){
         String updatedActorName = editTextUpdatedActorName.getText().toString();
